@@ -17,7 +17,6 @@ public class Main {
                 synchronized (sizeToFreq) {
                     String result = generateRoute("RLRFR", 100);
                     int count = 0;
-                    System.out.println("check");
                     for (int j = 0; j < result.length(); j++) {
                         if (result.charAt(j) == 'R') {
                             count++;
@@ -28,9 +27,12 @@ public class Main {
                     if (sizeToFreq.containsKey(count)) {
                         int update = sizeToFreq.get(count) + 1;
                         sizeToFreq.put(count, update);
+                        System.out.printf("- %d (%d раз)", sizeToFreq.get(count), count);
                     } else {
                         sizeToFreq.put(count, 1);
+                        System.out.printf("- %d (%d раз)", 1, count);
                     }
+
                 }
 
             };
